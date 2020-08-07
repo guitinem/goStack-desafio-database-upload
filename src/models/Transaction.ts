@@ -1,13 +1,9 @@
-import { Column, Entity, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, ManyToMany, ManyToOne, JoinColumn } from 'typeorm';
+import { Column, Entity, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 
 import Category from './Category';
 
-enum TypeTransaction {
-  Income = 'income',
-  Outcome = 'outcome'
-}
 
-@Entity()
+@Entity('transactions')
 class Transaction {
   @PrimaryGeneratedColumn("uuid")
   id: string;
@@ -16,7 +12,7 @@ class Transaction {
   title: string;
 
   @Column()
-  type: TypeTransaction;
+  type: string;
 
   @Column()
   value: number;

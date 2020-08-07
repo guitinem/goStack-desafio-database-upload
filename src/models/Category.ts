@@ -1,6 +1,6 @@
 import { Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('categories')
 class Category {
 
   @PrimaryGeneratedColumn('uuid')
