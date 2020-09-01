@@ -1,5 +1,5 @@
-import AppError from '../errors/AppError';
 import { getRepository, EntityRepository } from 'typeorm';
+import AppError from '../errors/AppError';
 
 import Category from '../models/Category';
 
@@ -13,13 +13,13 @@ class CreateOrGetCategoryService {
 
     const foundCategory = await categoryRepository.findOne({
       where: {
-        title: category
-      }
+        title: category,
+      },
     });
 
     if (!foundCategory) {
       const new_category = categoryRepository.create({
-        title: category
+        title: category,
       });
 
       await categoryRepository.save(new_category);
@@ -28,9 +28,7 @@ class CreateOrGetCategoryService {
     }
 
     return foundCategory;
-
   }
-
 }
 
 export default CreateOrGetCategoryService;
